@@ -71,9 +71,13 @@ class Deck:
         self.graveyard = []
 
     def new_deck(self, data):
+        random.shuffle(data)
         for pokemon in data:
             card = Card(pokemon['name'], pokemon['damage'])
             self.cards.append(pokemon)
+    def draw(self):
+        return self.cards.pop()
+
 
 class Player:
     def __init__(self, name, deck):
@@ -82,9 +86,20 @@ class Player:
         self.name = name
         self.deck = deck
 
+    def drawHand(self):
+        print(self.deck.cards)
+
+       
+
+
+
+
 
   
 eggbert_deck = Deck()
+cpu_deck = Deck()
+cpu_deck.new_deck(data)
+cpu = Player("Computer", cpu_deck)
 eggbert = Player("Eggbert", eggbert_deck) 
 
 eggbert_deck.new_deck(data)
