@@ -87,7 +87,6 @@ class Player:
         self.deck = deck
 
     def draw_hand(self):
-        random.shuffle(self.deck)
         while (len(self.hand)) < 3:
             self.hand.append(self.deck.draw())
         
