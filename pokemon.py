@@ -58,7 +58,7 @@ data =[
     }
   ]
 
-random.shuffle(data)
+
 
 class Card:
     def __init__(self, name, damage):
@@ -75,6 +75,10 @@ class Deck:
         for pokemon in data:
             card = Card(pokemon['name'], pokemon['damage'])
             self.cards.append(pokemon)
+
+    def shuffle(self):
+        random.shuffle(self.cards)
+
     def draw(self):
         return self.cards.pop()
 
