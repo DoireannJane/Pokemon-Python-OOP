@@ -75,9 +75,20 @@ class Deck:
             card = Card(pokemon['name'], pokemon['damage'])
             self.cards.append(pokemon)
 
+class Player:
+    def __init__(self, name, deck):
+        self.rounds_won = 0
+        self.hand = []
+        self.name = name
+        self.deck = deck
 
+
+  
 eggbert_deck = Deck()
+eggbert = Player("Eggbert", eggbert_deck) 
 
 eggbert_deck.new_deck(data)
 
-print(eggbert_deck.cards)
+# print (eggbert.hand)
+# print (eggbert.rounds_won)
+
