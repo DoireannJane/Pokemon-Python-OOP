@@ -93,7 +93,21 @@ class Player:
     def draw_hand(self):
         while (len(self.hand)) < 3:
             self.hand.append(self.deck.draw())
+
+    def play_card(self, card):
+        if card == 1:
+            return self.hand[0]
+        elif card == 2:
+            return self.hand[1]
+        elif card == 3: 
+            return self.hand[2]
+        else:
+            return "Please enter a number 1-3"
+
+
         
+class Game:
+    def __init__(self, player1, cpu):
 
 
        
