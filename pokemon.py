@@ -108,12 +108,38 @@ class Player:
         
 class Game:
     def __init__(self, player1, cpu):
+        self.round = 0
+        self.player1 = player1
+        self. cpu = cpu
+
+    def start(self):
+        print(f"Player versus the almighty CPU")
+    
+    def play_round(self):
+        self.player1.draw_hand()
+        self.cpu.draw_hand()
+        cpu_card = cpu.play_card(0)
+        player1_card = self.player1.play_card(1) or self.player1.play_card(2) or self.player1.play_card(3)
+
+        if player1_card['damage']> cpu_card['damage']:
+            self.round += 1
+            return f"{player1} has one this round!"
+        elif player1_card['damage'] < cpu_card['damage']:
+            self.round += 1
+            return "CPU has one this round!"
+        else: 
+            self.round += 1
+            return "This Round is a tie!"
+
+
+
+
+        
+
+
 
 
        
-
-
-
 
 eggbert_deck = Deck()
 cpu_deck = Deck()
@@ -121,7 +147,7 @@ cpu_deck.new_deck(data)
 eggbert_deck.new_deck(data)
 cpu = Player("Computer", cpu_deck)
 eggbert = Player("eggbert", eggbert_deck)
-
+game1 = Game(eggbert, cpu)
 
 
 # print (eggbert.hand)
