@@ -94,6 +94,9 @@ class Player:
         while (len(self.hand)) < 3:
             self.hand.append(self.deck.draw())
 
+    def view_hand(self):
+        return self.hand
+        
     def play_card(self, card):
         if card == 1:
             return self.hand[0]
@@ -103,9 +106,7 @@ class Player:
             return self.hand[2]
         else:
             return "Please enter a number 1-3"
-
-
-        
+    
 class Game:
     def __init__(self, player1, cpu):
         self.round = 0
@@ -120,10 +121,10 @@ class Game:
         self.cpu.draw_hand()
         cpu_card = cpu.play_card(1)
         player1_card = self.player1.play_card(1) or self.player1.play_card(2) or self.player1.play_card(3)
-
+    
         if player1_card['damage']> cpu_card['damage']:
             self.round += 1
-            return f"{player1} has one this round!"
+            return f"Player has one this round!"
         elif player1_card['damage'] < cpu_card['damage']:
             self.round += 1
             return "CPU has one this round!"
@@ -134,12 +135,7 @@ class Game:
 
 
 
-        
 
-
-
-
-       
 
 eggbert_deck = Deck()
 cpu_deck = Deck()
@@ -147,6 +143,7 @@ cpu_deck.new_deck(data)
 eggbert_deck.new_deck(data)
 cpu = Player("Computer", cpu_deck)
 eggbert = Player("eggbert", eggbert_deck)
+
 game1 = Game(eggbert, cpu)
 
 
