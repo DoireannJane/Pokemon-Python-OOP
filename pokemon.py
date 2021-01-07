@@ -118,7 +118,7 @@ class Game:
     def play_round(self):
         self.player1.draw_hand()
         self.cpu.draw_hand()
-        cpu_card = cpu.play_card(0)
+        cpu_card = cpu.play_card(1)
         player1_card = self.player1.play_card(1) or self.player1.play_card(2) or self.player1.play_card(3)
 
         if player1_card['damage']> cpu_card['damage']:
