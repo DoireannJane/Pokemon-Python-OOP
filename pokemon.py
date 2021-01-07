@@ -86,23 +86,26 @@ class Player:
         self.name = name
         self.deck = deck
 
-    def drawHand(self):
-        print(self.deck.cards)
+    def draw_hand(self):
+        random.shuffle(self.deck)
+        while (len(self.hand)) < 3:
+            self.hand.append(self.deck.draw())
+        
+
 
        
 
 
 
 
-
-  
 eggbert_deck = Deck()
 cpu_deck = Deck()
 cpu_deck.new_deck(data)
-cpu = Player("Computer", cpu_deck)
-eggbert = Player("Eggbert", eggbert_deck) 
-
 eggbert_deck.new_deck(data)
+cpu = Player("Computer", cpu_deck)
+eggbert = Player("eggbert", eggbert_deck)
+
+
 
 # print (eggbert.hand)
 # print (eggbert.rounds_won)
