@@ -72,12 +72,12 @@ class Deck:
 
     def new_deck(self, data):
         for pokemon in data:
-            pokemon = Card(pokemon['name'], pokemon['damage'])
-            self.cards.append(data)
+            card = Card(pokemon['name'], pokemon['damage'])
+            self.cards.append(pokemon)
 
 
 eggbert_deck = Deck()
 
 eggbert_deck.new_deck(data)
 
-print(eggbert_deck.cards.__len__)
+print(eggbert_deck.cards)
