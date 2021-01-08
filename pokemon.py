@@ -119,33 +119,43 @@ class Player:
     #         return "Please enter a number 1-3"
     
 class Game:
-    def __init__(self, player1, cpu):
+    def __init__(self, player1, player2):
         self.round = 1
         self.player1 = player1
-        self. cpu = cpu
-        cpu_deck.shuffle
-        eggbert_deck.shuffle
+        self.player2 = player2
 
     def start(self):
-        print(f"Player versus the almighty CPU")
+        print(f"{self.player1.name} versus the almighty CPU")
     
     # def play_round(self):
         print(f"round {self.round}!")
         self.player1.draw_hand()
-        self.cpu.draw_hand()
+        self.player2.draw_hand()
+        card = input(f"Which card would you like to play?? {self.player1.hand}")
+        if card == "1":
+          return self.player1.hand[0]
+        elif card == "2":
+          return self.player1.hand[1]
+        elif card == "3":
+          return self.player1.hand[2]
+        else:
+          return "Please pick a number 1-3"
 
-        # cpu_card = cpu.play_card(1)
+        # self.player1.play_card()
+
+        # player2_card = self.player2.play_card()
+
+        # player1_card = self.player1.play_card()
       
-    
-        if player1_card['damage']> cpu_card['damage']:
-            self.round += 1
-            return f"Player has one this round!"
-        elif player1_card['damage'] < cpu_card['damage']:
-            self.round += 1
-            return "CPU has one this round!"
-        else: 
-            self.round += 1
-            return "This Round is a tie!"
+        # if player1_card['damage']> player2_card['damage']:
+        #     self.round += 1
+        #     return f"Player has one this round!"
+        # elif player1_card['damage'] < player2_card['damage']:
+        #     self.round += 1
+        #     return "CPU has one this round!"
+        # else: 
+        #     self.round += 1
+        #     return "This Round is a tie!"
 
 
 
