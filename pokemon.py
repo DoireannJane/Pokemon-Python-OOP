@@ -135,17 +135,30 @@ class Game:
         if card == "1":
           play_card= self.player1.hand[0]
           op_card = self.player2.hand[0]
-          return f"You chose {play_card['name']} and CPU chose {op_card}"
+          print(f"You chose {play_card['name']} and CPU chose {op_card}")
+        # if play_card['damage'] > op_card['damage']:
+        #   self.player1.rounds_won += 1 
+        #   self.rounds += 1
+        #   return f"You won!"
+           
 
         elif card == "2":
           play_card= self.player1.hand[1]
           op_card = self.player2.hand[1]
-          return f"You chose {play_card['name']} and CPU chose {op_card}"
+          print(f"You chose {play_card['name']} and CPU chose {op_card}")
+          # if play_card['damage'] > op_card['damage']:
+          # self.player1.rounds_won + 1 
+          # return f"You won!"
+          
           
         elif card == "3":
           play_card= self.player1.hand[2]
           op_card = self.player2.hand[2]
-          return f"You chose {play_card['name']} and CPU chose {op_card}"
+          print(f"You chose {play_card['name']} and CPU chose {op_card}")
+          # if play_card['damage'] > op_card['damage']:
+          # self.player1.rounds_won + 1 
+          # return f"You won!"
+         
 
         else:
           return "Please pick a number 1-3"
