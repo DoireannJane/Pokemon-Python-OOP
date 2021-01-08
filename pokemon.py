@@ -99,12 +99,14 @@ class Player:
     
     def play_card(self):
         card = input("which card would you like to play?")
-        if card == 1:
+        if card == "1":
           return self.hand[0]
-        elif card == 2:
+        elif card == "2":
           return self.hand[1]
-        elif card == 3:
+        elif card == "3":
           return self.hand[2]
+        else:
+          return "Please pick a number 1-3"
     
     # def play_card(self, card):
     #     if card == 1:
@@ -123,7 +125,7 @@ class Game:
         self. cpu = cpu
         cpu_deck.shuffle
         eggbert_deck.shuffle
-        
+
     def start(self):
         print(f"Player versus the almighty CPU")
     
