@@ -133,17 +133,28 @@ class Game:
         self.player2.draw_hand()
         card = input(f"Which card would you like to play?? {self.player1.hand}")
         if card == "1":
-          return self.player1.hand[0]
+          play_card= self.player1.hand[0]
+          op_card = self.player2.hand[0]
+          return f"You chose {play_card['name']} and CPU chose {op_card}"
+
         elif card == "2":
-          return self.player1.hand[1]
+          play_card= self.player1.hand[1]
+          op_card = self.player2.hand[1]
+          return f"You chose {play_card['name']} and CPU chose {op_card}"
+          
         elif card == "3":
-          return self.player1.hand[2]
+          play_card= self.player1.hand[2]
+          op_card = self.player2.hand[2]
+          return f"You chose {play_card['name']} and CPU chose {op_card}"
+
         else:
           return "Please pick a number 1-3"
 
-        # self.player1.play_card()
+        # player2_card = self.player2.deck.draw()
+        #   return(f"CPU chose {player2_card}")
 
-        # player2_card = self.player2.play_card()
+        
+        
 
         # player1_card = self.player1.play_card()
       
