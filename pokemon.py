@@ -93,7 +93,7 @@ class Player:
     def draw_hand(self):
         while (len(self.hand)) < 3:
             self.hand.append(self.deck.draw())
-
+                        
     def view_hand(self):
         return self.hand
     
@@ -120,15 +120,18 @@ class Player:
     
 class Game:
     def __init__(self, player1, player2):
-        self.round = 1
+        self.rounds_played = 0
         self.player1 = player1
         self.player2 = player2
 
     def start(self):
         print(f"{self.player1.name} versus the almighty CPU")
+
     
-    # def play_round(self):
-        print(f"round {self.round}!")
+
+    
+    def play_round(self):
+        print(f"round {self.rounds_played +1}!")
         self.player1.draw_hand()
         self.player2.draw_hand()
         card = input(f"Which card would you like to play?? {self.player1.hand}")
@@ -136,32 +139,77 @@ class Game:
           play_card= self.player1.hand[0]
           op_card = self.player2.hand[0]
           print(f"You chose {play_card['name']} and CPU chose {op_card}")
-        # if play_card['damage'] > op_card['damage']:
-        #   self.player1.rounds_won += 1 
-        #   self.rounds += 1
-        #   return f"You won!"
-           
-
+          if play_card['damage'] > op_card['damage']:
+            # self.player1.rounds_won += 1 
+            self.rounds_played += 1
+            self.player1.draw_hand()
+            self.player2.draw_hand()
+            return f"You won!"
+          elif play_card['damage'] < op_card['damage']:
+            # self.player1.rounds_won += 1 
+            self.rounds += 1
+            self.player1.draw_hand()
+            self.player2.draw_hand()
+            return f"You Lost! CPU won!"
+            
+          else:
+            self.rounds_played += 1
+            self.player1.draw_hand()
+            self.player2.draw_hand()
+            return f"Tie!"
+            
         elif card == "2":
           play_card= self.player1.hand[1]
           op_card = self.player2.hand[1]
           print(f"You chose {play_card['name']} and CPU chose {op_card}")
-          # if play_card['damage'] > op_card['damage']:
-          # self.player1.rounds_won + 1 
-          # return f"You won!"
+          if play_card['damage'] > op_card['damage']:
+            # self.player1.rounds_won += 1 
+            self.rounds_played += 1
+            self.player1.draw_hand()
+            self.player2.draw_hand()
+            return f"You won!"
+            
+          elif play_card['damage'] < op_card['damage']:
+            # self.player1.rounds_won += 1 
+            self.rounds_played += 1
+            self.player1.draw_hand()
+            self.player2.draw_hand()
+            return f"You Lost! CPU won!"
+
+          else:
+            self.rounds_played += 1
+            self.player1.draw_hand()
+            self.player2.draw_hand()
+            return f"Tie!"
           
           
         elif card == "3":
           play_card= self.player1.hand[2]
           op_card = self.player2.hand[2]
           print(f"You chose {play_card['name']} and CPU chose {op_card}")
-          # if play_card['damage'] > op_card['damage']:
-          # self.player1.rounds_won + 1 
-          # return f"You won!"
+          if play_card['damage'] > op_card['damage']:
+            # self.player1.rounds_won += 1 
+            self.rounds_played += 1
+            self.player1.draw_hand()
+            self.player2.draw_hand()
+            return f"You won!"
+          elif play_card['damage'] < op_card['damage']:
+            # self.player1.rounds_won += 1 
+            self.rounds += 1
+            self.player1.draw_hand()
+            self.player2.draw_hand()
+            return f"You Lost! CPU won!"
+          else:
+            self.rounds_played += 1
+            self.player1.draw_hand()
+            self.player2.draw_hand()
+            return f"Tie!"
          
 
         else:
-          return "Please pick a number 1-3"
+          print("PLEASE PICK A NUMBER 1 -3")
+          self.play_round()
+          
 
         # player2_card = self.player2.deck.draw()
         #   return(f"CPU chose {player2_card}")
