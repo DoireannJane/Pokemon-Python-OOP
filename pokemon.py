@@ -96,31 +96,44 @@ class Player:
 
     def view_hand(self):
         return self.hand
-        
-    def play_card(self, card):
+    
+    def play_card(self):
+        card = input("which card would you like to play?")
         if card == 1:
-            return self.hand[0]
+          return self.hand[0]
         elif card == 2:
-            return self.hand[1]
-        elif card == 3: 
-            return self.hand[2]
-        else:
-            return "Please enter a number 1-3"
+          return self.hand[1]
+        elif card == 3:
+          return self.hand[2]
+    
+    # def play_card(self, card):
+    #     if card == 1:
+    #         return self.hand[0]
+    #     elif card == 2:
+    #         return self.hand[1]
+    #     elif card == 3: 
+    #         return self.hand[2]
+    #     else:
+    #         return "Please enter a number 1-3"
     
 class Game:
     def __init__(self, player1, cpu):
-        self.round = 0
+        self.round = 1
         self.player1 = player1
         self. cpu = cpu
-
+        cpu_deck.shuffle
+        eggbert_deck.shuffle
+        
     def start(self):
         print(f"Player versus the almighty CPU")
     
-    def play_round(self):
+    # def play_round(self):
+        print(f"round {self.round}!")
         self.player1.draw_hand()
         self.cpu.draw_hand()
-        cpu_card = cpu.play_card(1)
-        player1_card = self.player1.play_card(1) or self.player1.play_card(2) or self.player1.play_card(3)
+
+        # cpu_card = cpu.play_card(1)
+      
     
         if player1_card['damage']> cpu_card['damage']:
             self.round += 1
@@ -134,9 +147,6 @@ class Game:
 
 
 
-
-
-
 eggbert_deck = Deck()
 cpu_deck = Deck()
 cpu_deck.new_deck(data)
@@ -144,7 +154,7 @@ eggbert_deck.new_deck(data)
 cpu = Player("Computer", cpu_deck)
 eggbert = Player("eggbert", eggbert_deck)
 
-game1 = Game(eggbert, cpu)
+game = Game(eggbert, cpu)
 
 
 # print (eggbert.hand)
