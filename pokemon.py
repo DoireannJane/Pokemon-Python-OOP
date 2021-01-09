@@ -58,7 +58,7 @@ data =[
     }
   ]
 
-
+# TO START TYPE game.play_rounds() in terminal
 
 class Card:
     def __init__(self, name, damage):
@@ -132,6 +132,13 @@ class Game:
 
     def start(self):
         print(f"{self.player1.name} versus the almighty CPU")
+    
+    # def clear_score(self):
+    #   self.rounds_played = 0
+    #   self.player1.rounds_won = 0
+    #   self.player2.rounds_won = 0
+    #   self.player1.deck.append(self.player1.graveyard)
+    #   self.player2.deck.append(self.player2.graveyard)
     
     def play_round(self):
         print(f"round {self.rounds_played +1}!")
@@ -232,11 +239,20 @@ class Game:
           self.play_round()
 
     def play_rounds(self):
+      print(f"{self.player1.name} versus the almighty CPU")
       while self.rounds_played <= 2:
         self.play_round()
       else:
-        return f"The Game is over! You scored: {self.player1.rounds_won} CPU scored: {self.player2.rounds_won}"
-      
+        print(f"The Game is over! You scored: {self.player1.rounds_won} CPU scored: {self.player2.rounds_won}")
+        # again = input("Would you like to play again? y or n")
+        # if again == "y":
+        #   self.clear_score()
+        #   self.play_round()
+        # else:
+        #   print("Thank you for playing!")
+
+
+
       
 
         # player2_card = self.player2.deck.draw()
