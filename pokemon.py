@@ -160,14 +160,14 @@ class Game:
             self.rounds_played += 1
             self.player1.draw_hand()
             self.player2.draw_hand()
-            return f"You won!"
+            print(f"You won this round!")
 
           elif play_card['damage'] < op_card['damage']:
             self.player2.rounds_won += 1
             self.rounds_played += 1
             self.player1.draw_hand()
             self.player2.draw_hand()
-            return f"You Lost! CPU won!"
+            print(f"You Lost this round! CPU won!")
             
           else:
             self.rounds_played += 1
@@ -175,7 +175,7 @@ class Game:
             self.player2.rounds_won += 1
             self.player1.draw_hand()
             self.player2.draw_hand()
-            return f"Tie!"
+            print(f"This round was a tie!")
             
         elif card == "2":
           play_card= self.player1.hand[1]
@@ -189,14 +189,14 @@ class Game:
             self.rounds_played += 1
             self.player1.draw_hand()
             self.player2.draw_hand()
-            return f"You won!"
+            print(f"You won this round!")
             
           elif play_card['damage'] < op_card['damage']:
             self.player2.rounds_won += 1
             self.rounds_played += 1
             self.player1.draw_hand()
             self.player2.draw_hand()
-            return f"You Lost! CPU won!"
+            print(f"You Lost this round! CPU won!")
 
           else:
             self.rounds_played += 1
@@ -204,7 +204,7 @@ class Game:
             self.player2.rounds_won += 1
             self.player1.draw_hand()
             self.player2.draw_hand()
-            return f"Tie!"
+            print(f"This round was a tie!")
           
         elif card == "3":
           play_card= self.player1.hand[2]
@@ -218,20 +218,22 @@ class Game:
             self.rounds_played += 1
             self.player1.draw_hand()
             self.player2.draw_hand()
-            return f"You won!"
+            print(f"You won this round!")
+
           elif play_card['damage'] < op_card['damage']:
             self.player2.rounds_won += 1 
             self.rounds_played += 1
             self.player1.draw_hand()
             self.player2.draw_hand()
-            return f"You Lost! CPU won!"
+            print(f"You Lost this round! CPU won!")
+
           else:
             self.rounds_played += 1
             self.player1.rounds_won += 1
             self.player2.rounds_won += 1
             self.player1.draw_hand()
             self.player2.draw_hand()
-            return f"Tie!"
+            print(f"This round was a tie!")
          
 
         else:
@@ -244,7 +246,7 @@ class Game:
         self.play_round()
       else:
         print(f"The Game is over! You scored: {self.player1.rounds_won} CPU scored: {self.player2.rounds_won}")
-        # again = input("Would you like to play again? y or n")
+        # again = input("Would you like to play again? y or n ")
         # if again == "y":
         #   self.clear_score()
         #   self.play_round()
