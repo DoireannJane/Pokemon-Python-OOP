@@ -97,6 +97,8 @@ class Player:
 
     def discard_card(self, card):
         self.graveyard.append(card)
+        self.hand.remove(card)
+
                         
     def view_hand(self):
         return self.hand
