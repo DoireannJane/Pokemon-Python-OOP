@@ -132,9 +132,6 @@ class Game:
 
     def start(self):
         print(f"{self.player1.name} versus the almighty CPU")
-
-    
-
     
     def play_round(self):
         print(f"round {self.rounds_played +1}!")
@@ -142,6 +139,7 @@ class Game:
         self.player1.draw_hand()
         self.player2.draw_hand()
         card = input(f"Which card would you like to play?? {self.player1.hand}")
+      
         if card == "1":
           
           play_card= self.player1.hand[0]
@@ -222,6 +220,8 @@ class Game:
             return f"You Lost! CPU won!"
           else:
             self.rounds_played += 1
+            self.player1.rounds_won += 1
+            self.player2.rounds_won += 1
             self.player1.draw_hand()
             self.player2.draw_hand()
             return f"Tie!"
@@ -230,7 +230,14 @@ class Game:
         else:
           print("PLEASE PICK A NUMBER 1 -3")
           self.play_round()
-          
+
+    def play_rounds(self):
+      while self.rounds_played <= 2:
+        self.play_round()
+      else:
+        return f"The Game is over! You scored: {self.player1.rounds_won} CPU scored: {self.player2.rounds_won}"
+      
+      
 
         # player2_card = self.player2.deck.draw()
         #   return(f"CPU chose {player2_card}")
