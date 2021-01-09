@@ -138,6 +138,7 @@ class Game:
     
     def play_round(self):
         print(f"round {self.rounds_played +1}!")
+        print(f"You won {self.player1.rounds_won} and CPU won {self.player2.rounds_won} rounds") 
         self.player1.draw_hand()
         self.player2.draw_hand()
         card = input(f"Which card would you like to play?? {self.player1.hand}")
@@ -150,14 +151,14 @@ class Game:
           self.player2.discard_card(self.player2.hand[0])
 
           if play_card['damage'] > op_card['damage']:
-            # self.player1.rounds_won += 1 
+            self.player1.rounds_won += 1 
             self.rounds_played += 1
             self.player1.draw_hand()
             self.player2.draw_hand()
             return f"You won!"
 
           elif play_card['damage'] < op_card['damage']:
-            # self.player1.rounds_won += 1 
+            self.player2.rounds_won += 1
             self.rounds_played += 1
             self.player1.draw_hand()
             self.player2.draw_hand()
@@ -165,6 +166,8 @@ class Game:
             
           else:
             self.rounds_played += 1
+            self.player1.rounds_won += 1
+            self.player2.rounds_won += 1
             self.player1.draw_hand()
             self.player2.draw_hand()
             return f"Tie!"
@@ -177,14 +180,14 @@ class Game:
           self.player2.discard_card(self.player2.hand[1])
 
           if play_card['damage'] > op_card['damage']:
-            # self.player1.rounds_won += 1 
+            self.player1.rounds_won += 1 
             self.rounds_played += 1
             self.player1.draw_hand()
             self.player2.draw_hand()
             return f"You won!"
             
           elif play_card['damage'] < op_card['damage']:
-            # self.player1.rounds_won += 1 
+            self.player2.rounds_won += 1
             self.rounds_played += 1
             self.player1.draw_hand()
             self.player2.draw_hand()
@@ -192,6 +195,8 @@ class Game:
 
           else:
             self.rounds_played += 1
+            self.player1.rounds_won += 1
+            self.player2.rounds_won += 1
             self.player1.draw_hand()
             self.player2.draw_hand()
             return f"Tie!"
@@ -204,13 +209,13 @@ class Game:
           self.player2.discard_card(self.player2.hand[0])
 
           if play_card['damage'] > op_card['damage']:
-            # self.player1.rounds_won += 1 
+            self.player1.rounds_won += 1 
             self.rounds_played += 1
             self.player1.draw_hand()
             self.player2.draw_hand()
             return f"You won!"
           elif play_card['damage'] < op_card['damage']:
-            # self.player1.rounds_won += 1 
+            self.player2.rounds_won += 1 
             self.rounds_played += 1
             self.player1.draw_hand()
             self.player2.draw_hand()
