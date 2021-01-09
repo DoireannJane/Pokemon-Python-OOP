@@ -87,12 +87,16 @@ class Player:
     def __init__(self, name, deck):
         self.rounds_won = 0
         self.hand = []
+        self.graveyard = []
         self.name = name
         self.deck = deck
 
     def draw_hand(self):
         while (len(self.hand)) < 3:
             self.hand.append(self.deck.draw())
+
+    def discard_card(self, card):
+        self.graveyard.append(card)
                         
     def view_hand(self):
         return self.hand
@@ -136,18 +140,23 @@ class Game:
         self.player2.draw_hand()
         card = input(f"Which card would you like to play?? {self.player1.hand}")
         if card == "1":
+          
           play_card= self.player1.hand[0]
           op_card = self.player2.hand[0]
           print(f"You chose {play_card['name']} and CPU chose {op_card}")
+          self.player1.discard_card(self.player1.hand[0])
+          self.player2.discard_card(self.player2.hand[0])
+
           if play_card['damage'] > op_card['damage']:
             # self.player1.rounds_won += 1 
             self.rounds_played += 1
             self.player1.draw_hand()
             self.player2.draw_hand()
             return f"You won!"
+
           elif play_card['damage'] < op_card['damage']:
             # self.player1.rounds_won += 1 
-            self.rounds += 1
+            self.rounds_played += 1
             self.player1.draw_hand()
             self.player2.draw_hand()
             return f"You Lost! CPU won!"
@@ -162,6 +171,9 @@ class Game:
           play_card= self.player1.hand[1]
           op_card = self.player2.hand[1]
           print(f"You chose {play_card['name']} and CPU chose {op_card}")
+          self.player1.discard_card(self.player1.hand[1])
+          self.player2.discard_card(self.player2.hand[1])
+
           if play_card['damage'] > op_card['damage']:
             # self.player1.rounds_won += 1 
             self.rounds_played += 1
@@ -182,11 +194,13 @@ class Game:
             self.player2.draw_hand()
             return f"Tie!"
           
-          
         elif card == "3":
           play_card= self.player1.hand[2]
           op_card = self.player2.hand[2]
           print(f"You chose {play_card['name']} and CPU chose {op_card}")
+          self.player1.discard_card(self.player1.hand[0])
+          self.player2.discard_card(self.player2.hand[0])
+
           if play_card['damage'] > op_card['damage']:
             # self.player1.rounds_won += 1 
             self.rounds_played += 1
@@ -195,7 +209,7 @@ class Game:
             return f"You won!"
           elif play_card['damage'] < op_card['damage']:
             # self.player1.rounds_won += 1 
-            self.rounds += 1
+            self.rounds_played += 1
             self.player1.draw_hand()
             self.player2.draw_hand()
             return f"You Lost! CPU won!"
@@ -229,8 +243,6 @@ class Game:
         #     self.round += 1
         #     return "This Round is a tie!"
 
-
-
 eggbert_deck = Deck()
 cpu_deck = Deck()
 cpu_deck.new_deck(data)
@@ -239,6 +251,7 @@ cpu = Player("Computer", cpu_deck)
 eggbert = Player("eggbert", eggbert_deck)
 
 game = Game(eggbert, cpu)
+
 
 
 # print (eggbert.hand)
