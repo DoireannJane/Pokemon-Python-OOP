@@ -58,7 +58,7 @@ data =[
     }
   ]
 
-# TO START TYPE game.play_rounds() in terminal
+
 
 class Card:
     def __init__(self, name, damage):
@@ -114,16 +114,7 @@ class Player:
         else:
           return "Please pick a number 1-3"
     
-    # def play_card(self, card):
-    #     if card == 1:
-    #         return self.hand[0]
-    #     elif card == 2:
-    #         return self.hand[1]
-    #     elif card == 3: 
-    #         return self.hand[2]
-    #     else:
-    #         return "Please enter a number 1-3"
-    
+
 class Game:
     def __init__(self, player1, player2):
         self.rounds_played = 0
@@ -283,7 +274,7 @@ cpu = Player("Computer", cpu_deck)
 eggbert = Player("eggbert", eggbert_deck)
 
 game = Game(eggbert, cpu)
-
+game.play_rounds()
 
 
 # print (eggbert.hand)
